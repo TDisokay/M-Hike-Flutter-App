@@ -1,4 +1,4 @@
-# m_hike_app
+# M-Hike-Flutter App
 
 A new Flutter project.
 
