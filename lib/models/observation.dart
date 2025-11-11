@@ -3,7 +3,7 @@ class Observation {
   final String observation;
   final String observationTime;
   final String? comments;
-  final int hikeId; // Foreign Key
+  final int hikeId;
 
   const Observation({
     this.id,

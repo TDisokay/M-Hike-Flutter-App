@@ -1,4 +1,3 @@
-// Based on lib/models/book.dart
 class Hike {
   final int? id;
   final String name;

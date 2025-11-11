@@ -49,7 +49,6 @@ class _HikeListScreenState extends State<HikeListScreen> {
         setState(() {
           _isSearching = !_isSearching;
           if (!_isSearching) {
-            // If closing search, clear text and reload all hikes
             _searchController.clear();
             Provider.of<HikeViewModel>(context, listen: false).loadHikes();
           }
@@ -71,7 +70,6 @@ class _HikeListScreenState extends State<HikeListScreen> {
             icon: Icon(Icons.delete_sweep),
             tooltip: "Delete All",
             onPressed: () {
-              // Only show if not searching and list is not empty
               final viewModel = Provider.of<HikeViewModel>(
                 context,
                 listen: false,
@@ -277,7 +275,7 @@ class _HikeListScreenState extends State<HikeListScreen> {
           TextButton(
             onPressed: () {
               Navigator.pop(context);
-              viewModel.deleteAllHikes(); // Call the viewmodel
+              viewModel.deleteAllHikes();
             },
             child: Text("Delete All", style: TextStyle(color: Theme.of(context).colorScheme.error)),
           ),

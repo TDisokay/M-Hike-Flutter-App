@@ -50,7 +50,6 @@ class AddEditHikeScreenState extends State<AddEditHikeScreen> {
 
   @override
   void dispose() {
-    // Clean up controllers
     _nameController.dispose();
     _locationController.dispose();
     _dateController.dispose();
@@ -97,10 +96,8 @@ class AddEditHikeScreenState extends State<AddEditHikeScreen> {
       );
 
       if (widget.hike == null) {
-        // Add new hike
         await viewModel.addHike(hike);
       } else {
-        // Update hike
         await viewModel.updateHike(hike);
       }
 

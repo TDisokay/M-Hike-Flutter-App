@@ -33,7 +33,7 @@ class HikeDetailViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Load all observations for single hike
+  // Load observations for single hike
   Future<void> loadObservations() async {
     try {
       _setLoading(true);

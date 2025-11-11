@@ -14,7 +14,6 @@ class HikeDetailScreen extends StatelessWidget {
       create: (_) => HikeDetailViewModel()
         ..setHike(hike)
         ..loadObservations(),
-
       child: Consumer<HikeDetailViewModel>(
         builder: (context, viewModel, child) {
           return Scaffold(

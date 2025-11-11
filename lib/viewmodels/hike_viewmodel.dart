@@ -31,8 +31,6 @@ class HikeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Public Business Logic Methods 
-
   // Load all hikes
   Future<void> loadHikes() async {
     try {
@@ -102,6 +100,7 @@ class HikeViewModel extends ChangeNotifier {
     }
   }
 
+  // Delete all hikes
   Future<void> deleteAllHikes() async {
     try {
       _setLoading(true);

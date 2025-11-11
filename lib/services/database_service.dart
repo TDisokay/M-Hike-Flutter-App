@@ -50,7 +50,6 @@ class DatabaseService {
       )
     ''');
 
-    // Not in the guide, required for project
     await database.execute('''
       CREATE TABLE observations (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -63,8 +62,6 @@ class DatabaseService {
     ''');
   }
 
-
-  // Hikes CRUD Operations
   // Add new hike
   Future<int> insertHike(Hike hike) async {
     final db = await database;
@@ -102,13 +99,14 @@ class DatabaseService {
     );
   }
 
+  // Delete all hikes
   Future<void> deleteAllData() async {
     final db = await database;
     await db.delete('observations'); 
     await db.delete('hikes'); 
   }
 
-  // Search (d)
+  // Search
   Future<List<Hike>> searchHikes(String query) async {
     final db = await database;
     final bookMaps = await db.query(
@@ -120,15 +118,13 @@ class DatabaseService {
     return bookMaps.map((map) => Hike.fromMap(map)).toList();
   }
 
-
-  // Observations CRUD Operations
   // Add new observation
   Future<int> insertObservation(Observation observation) async {
     final db = await database;
     return await db.insert('observations', observation.toMap());
   }
 
-  // Get all observations for single hike
+  // Get observations for single hike
   Future<List<Observation>> getAllObservationsForHike(int hikeId) async {
     final db = await database;
     final obsMaps = await db.query(
@@ -140,7 +136,7 @@ class DatabaseService {
     return obsMaps.map((map) => Observation.fromMap(map)).toList();
   }
 
-  // Delete an observation
+  // Delete observation
   Future<int> deleteObservation(int observationId) async {
     final db = await database;
     return await db.delete(
